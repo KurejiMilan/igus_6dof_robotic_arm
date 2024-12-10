@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:macro name="rebel_joint" params="name can_id position_min=0 position_max=0 gear_scale=1 continuous_joint=false cri_joint_offset=0">
+    <joint name="${name}">
+      <!-- command interfaces -->
+      <command_interface name="position">
+        <xacro:unless value="${continuous_joint}">
+          <param name="min">${position_min}</param>
+          <param name="max">${position_max}</param>
+        </xacro:unless>
+      </command_interface>
+      <state_interface name="position">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+    </joint>
+  </xacro:macro>
+</robot>

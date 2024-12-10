@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>irc_ros_description</name>
+  <version>0.1.0</version>
+  <description>The irc_ros_description package</description>
+
+  <maintainer email="fer@cpr-robots.com">Felix Reuter</maintainer>
+  <license>Apache-2.0</license>
+  <url type="website">cpr-robots.com</url>
+  <url type="repository">https://github.com/CommonplaceRobotics/iRC_ROS</url>
+  <author email="fer@cpr-robots.com">Felix Reuter</author>
+
+  <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>ros2_launch</exec_depend>
+  <exec_depend>rviz2</exec_depend>
+  <exec_depend>urdf</exec_depend>
+  <exec_depend>xacro</exec_depend>
+  <exec_depend>ros_gz_sim</exec_depend>
+  <exec_depend>ign_ros2_control</exec_depend>
+  <exec_depend>gz_ros2_control</exec_depend>
+  <!-- <exec_depend condition="$ROS_DISTRO >= iron">gz_ros2_control</exec_depend>
+  <exec_depend condition="$ROS_DISTRO == humble">ign_ros2_control</exec_depend>  -->
+  <exec_depend>ros_gz_bridge</exec_depend>
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+  <test_depend>ament_cmake_gtest</test_depend>
+
+  <depend>joint_state_publisher_gui</depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
