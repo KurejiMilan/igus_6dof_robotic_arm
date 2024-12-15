@@ -9,9 +9,22 @@
           <param name="max">${position_max}</param>
         </xacro:unless>
       </command_interface>
+      <!-- interface for velocity command -->
+      <command_interface name="velocity">
+        <param name="min">${-pi/4}</param>
+        <param name="max">${pi/4}</param>
+      </command_interface>
+      <!-- position state interface -->
       <state_interface name="position">
         <param name="initial_value">0.0</param>
       </state_interface>
+      <!-- velocity state interface -->
+      <state_interface name="velocity">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+
+      <!-- CRI specific parameters -->
+      <param name="cri_joint_offset">${cri_joint_offset}</param>
     </joint>
   </xacro:macro>
 </robot>

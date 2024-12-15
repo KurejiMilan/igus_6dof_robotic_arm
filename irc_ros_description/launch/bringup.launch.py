@@ -105,7 +105,24 @@ def generate_launch_description():
         name="rviz2",
         arguments=["-d", rviz_file],
     )
-
+    joint_state_broadcaster_spawner = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=[
+            "joint_state_broadcaster",
+            "--controller-manager",
+            "/controller_manager"
+        ]
+    )
+    igus_6dof_arm_spawner = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=[
+            "joint_trajectory_controller",
+            "--controller-manager",
+            "/controller_manager"
+        ]
+    )
     description = LaunchDescription()
 
     # Launch args
@@ -118,7 +135,8 @@ def generate_launch_description():
     # Nodes
     description.add_action(robot_state_publisher_node)
     description.add_action(joint_state_publisher_gui_node)
-
+    description.add_action(joint_state_broadcaster_spawner)
+    description.add_action(igus_6dof_arm_spawner)
     # Visualization
     description.add_action(rviz_node)
 

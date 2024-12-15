@@ -19,18 +19,11 @@
           </xacro:unless>
         </xacro:if>
 
-        <!-- <xacro:if value="${hardware_protocol == 'gazebo'}">
-            <plugin>gazebo_ros2_control/GazeboSystem</plugin>
-        </xacro:if> -->
-        <!-- <xacro:if value="${hardware_protocol == 'cprcanv2'}">
-          <plugin>irc_hardware/IrcRosCan</plugin>
-          <param name="can_socket">can0</param>
-        </xacro:if> -->
-        <!-- <xacro:if value="${hardware_protocol == 'cri'}"> -->
-          <!-- <plugin>irc_hardware/IrcRosCri</plugin> -->
+        <xacro:if value="${hardware_protocol == 'cri'}">
+          <plugin>igus_rebel_hw_controller/RebelController</plugin>
           <!-- <param name="ip">192.168.3.11</param> -->
-          <!-- <param name="ip">192.168.3.100</param>  -->
-        <!-- </xacro:if> -->
+          <param name="ip">192.168.3.100</param> 
+        </xacro:if>
       </hardware>
 
       <!-- Include the joint module macro -->

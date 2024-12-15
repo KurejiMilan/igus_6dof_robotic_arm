@@ -48,19 +48,19 @@ int main(int argc, char ** argv)
         rclcpp::shutdown();
         return -1;       
     }
-    current_state->setToDefaultValues();
+    // current_state->setToDefaultValues();
     igus_6dof_arm.setStartState(*current_state);
     
     // these are valid goal pose obtained using setRandomTarget()
     geometry_msgs::msg::Pose GoalPose;
-    GoalPose.orientation.x = 0.000097;
-    GoalPose.orientation.y = 0.442176;
-    GoalPose.orientation.z = 0.000076;
-    GoalPose.orientation.w = 0.896928;       
+    GoalPose.orientation.x = -0.000104;
+    GoalPose.orientation.y = 0.442271;
+    GoalPose.orientation.z = -0.000127;
+    GoalPose.orientation.w = 0.896881;       
 
-    GoalPose.position.x = 0.465228;
-    GoalPose.position.y = -0.000061;
-    GoalPose.position.z = 0.673601;
+    GoalPose.position.x = 0.465300;
+    GoalPose.position.y = 0.000110;
+    GoalPose.position.z = 0.673511;
 
     igus_6dof_arm.setPlanningTime(10.0);
     // Change planner to RRTConnect
@@ -70,8 +70,10 @@ int main(int argc, char ** argv)
     // the following lines of code are set up for debugging and understanding valid targets 
     // igus_6dof_arm.setRandomTarget();
     // geometry_msgs::msg::Pose random_pose = igus_6dof_arm.getCurrentPose().pose;
-    // //printing valid pose
-    // // Random Target Pose: Position(0.465228, -0.000061, 0.673601) Orientation(0.000097, 0.442176, 0.000076, 0.896928)
+    //printing valid pose
+    // Random Target Pose: Position(0.465228, -0.000061, 0.673601) Orientation(0.000097, 0.442176, 0.000076, 0.896928)
+    // Random Target Pose: Position(0.465300, 0.000110, 0.673511) Orientation(-0.000104, 0.442271, -0.000127, 0.896881)
+
     // RCLCPP_INFO(rclcpp::get_logger("random_pose_logger"), "Random Target Pose: Position(%f, %f, %f) Orientation(%f, %f, %f, %f)", 
     //     random_pose.position.x, random_pose.position.y, random_pose.position.z,
     //     random_pose.orientation.x, random_pose.orientation.y,
