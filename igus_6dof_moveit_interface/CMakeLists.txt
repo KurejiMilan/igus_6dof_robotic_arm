@@ -29,12 +29,27 @@ ament_target_dependencies(inverse_path_solver
   moveit_msgs
 )
 
+add_executable(motionplanIK_tests src/motionplanIK_tests.cpp)
+ament_target_dependencies(motionplanIK_tests
+  rclcpp 
+  moveit_ros_planning_interface 
+  geometry_msgs 
+  tf2_geometry_msgs 
+  tf2
+  moveit_core
+  moveit_msgs
+)
+
 install(TARGETS
   forward_path_planner
   DESTINATION lib/${PROJECT_NAME}
 )
 install(TARGETS
   inverse_path_solver
+  DESTINATION lib/${PROJECT_NAME}
+)
+install(TARGETS
+  motionplanIK_tests
   DESTINATION lib/${PROJECT_NAME}
 )
 
